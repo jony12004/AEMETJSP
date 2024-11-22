@@ -14,29 +14,28 @@ public class JSPAemet {
 
     public static void JSPGenerarRegistroTemp() {
         double numero = 0;
-        for (int i = 0; i < JSPAemet.CIUDAD; i++) {
+        for (int i = 0; i < 1/*JSPAemet.CIUDAD*/; i++) {
             System.out.println("\n" + ciudad[i]);
             System.out.print("Valor maximo: ");
             int Vmax = consola.nextInt();
             System.out.print("Valor minimo: ");
             int Vmin = consola.nextInt();
-            for (int j = 0; j<JSPRegCiudad.NTEMP; j++){
+            for (int j = 0; j < JSPRegCiudad.NTEMP; j++) {
                 numero = (Math.random() * Vmax + Vmin);
-                JSPRegCiudad.ntemp[j] = (int)numero;
+                JSPRegCiudad.ntemp[j] = (int) numero;
             }
         }
 
     }
 
-    public static void JSPListarRegistroTemp(){
-        System.out.println("------ LISTADO DE NOTAS --------------");
-        for (int i=0; i<JSPAemet.CIUDAD; i++){
-            System.out.print("             " + ciudad[i] + "  ");
-        }
-        for (int i=0; i<CIUDAD; i++){
-            for (int j=0; j<JSPRegCiudad.DIASEMANA; j++){
-                System.out.print("               " + JSPRegCiudad.temperatura[i][j]+ "        ");
+    public static void JSPListarRegistroTemp() {
+
+        for (int i = 0; i < JSPAemet.CIUDAD; i++) {
+            System.out.println(JSPAemet.ciudad[i] + "       ");
+            for (int j = 0; j < JSPRegCiudad.NTEMP; j++) {
+                System.out.print(JSPRegCiudad.ntemp[j] + ", ");
+                System.out.println(JSPRegCiudad.temperatura[i][j]);
             }
-            System.out.println();
-        }    }
+        }
+    }
 }
